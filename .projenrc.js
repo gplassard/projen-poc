@@ -2,6 +2,13 @@ const { typescript } = require('projen');
 const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: 'projen-poc',
+  gitignore: ['.vscode', '.idea', '*.iml'],
+  githubOptions: {
+    mergify: false,
+  },
+  jestOptions: {
+    configFilePath: 'jest.config.json',
+  },
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
